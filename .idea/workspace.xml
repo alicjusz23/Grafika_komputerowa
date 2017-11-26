@@ -6,13 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="071736f8-aa11-49af-af2f-ddb8396595b8" name="Default" comment="Ready project. Translation, rotation and zoom applied.">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/HelloCamera.java" afterPath="$PROJECT_DIR$/src/HelloCamera.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Linia.java" afterPath="$PROJECT_DIR$/src/Linia.java" />
-    </list>
+    <list default="true" id="071736f8-aa11-49af-af2f-ddb8396595b8" name="Default" comment="Ready project. Translation, rotation and zoom applied." />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
