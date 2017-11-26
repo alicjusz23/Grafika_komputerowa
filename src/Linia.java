@@ -49,10 +49,6 @@ public class Linia{
             this.a.y += krok;
             this.b.y += krok;
         }else if (os==3) {
-            krok =2;
-            if(kierunek==5){
-                krok=-2*krok;
-            }
             this.a.z += krok;
             this.b.z += krok;
         }

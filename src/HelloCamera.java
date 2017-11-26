@@ -18,7 +18,7 @@ public class HelloCamera extends PApplet{
 
 
     public HelloCamera() throws IOException {
-        BufferedReader br = new BufferedReader(new FileReader("D:\\studia_EE\\sem7\\Grafika\\src\\resources\\figury"));
+        BufferedReader br = new BufferedReader(new FileReader("src\\resources\\figury"));
         String l = null;
         while((l=br.readLine())!=null){
             if(l.contains("LINIA")) {
@@ -64,7 +64,7 @@ public class HelloCamera extends PApplet{
     public void draw(){
         int i=0;
         this.g.background(255,255,255);
-        Color[] colors = {Color.BLUE, Color.ORANGE, Color.red, Color.green, Color.CYAN, Color.DARK_GRAY, Color.pink};
+        Color[] colors = {Color.BLUE, Color.ORANGE, Color.red, Color.green, Color.CYAN, Color.DARK_GRAY};
         for(Linia li: linia){
             stroke(colors[i].getRGB());
             li.rysuj(this.g, d, height, width);
@@ -77,6 +77,7 @@ public class HelloCamera extends PApplet{
         }
 
         //legenda
+        fill(255,255,255);
         rect(0,height-70, width, 70);
         textSize(20);
         fill(0, 0,0 );
@@ -87,10 +88,10 @@ public class HelloCamera extends PApplet{
         textSize(13);
         text("x+:  z", 50, height-35);
         text("x-:  x", 50, height-15);
-        text("y+:  z", 120, height-35);
-        text("y-:  x", 120, height-15);
-        text("z+:  z", 190, height-35);
-        text("z-:  x", 190, height-15);
+        text("y+:  c", 120, height-35);
+        text("y-:  v", 120, height-15);
+        text("z+:  n", 190, height-35);
+        text("z-:  m", 190, height-15);
 
         text("x+:  q", 300, height-35);
         text("x-:  w", 300, height-15);
@@ -104,8 +105,6 @@ public class HelloCamera extends PApplet{
 
         textSize(10);
         text("A. Puacz", 750, height-15);
-
-        fill(255,255,255);
     }
 
     public void translacja(char c){
@@ -168,7 +167,7 @@ public class HelloCamera extends PApplet{
 
 
     public void rotacja(int c){
-        float kat = PI/8;
+        float kat = PI/16;
         if ('q' == c){                               //rotacja OX + q
             for(Linia li: linia){
                 li.obracaj(kat, 1, 4);
@@ -221,13 +220,17 @@ public class HelloCamera extends PApplet{
     }
 
     public void zoom(int c){
-        int krok = 3;
+        int krok = 5;
         if('a' == c) {                   //zoom + a
             this.d +=krok;
-            System.out.println("+");
+            System.out.println("Zoom +");
         }else if ('s' == c){             //zoom - s
-            this.d -=krok;
-            System.out.println("-");
+            if(this.d -krok >0) {
+                this.d -= krok;
+                System.out.println("Zoom -");
+            }else
+                System.out.println("Nie można się oddalić");
+
         }
         this.g.clear();
         this.g.background(255,255,255);
