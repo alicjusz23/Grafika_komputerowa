@@ -5,7 +5,7 @@ import java.awt.*;
 /**
  * Created by Alicja on 2017-10-31.
  */
-public class Prostokat implements Comparable<Prostokat>{
+public class Czworokat implements Comparable<Czworokat>{
     //4 punkty -  12 wspolrzednych
     Punkt a;
     Punkt b;
@@ -16,7 +16,7 @@ public class Prostokat implements Comparable<Prostokat>{
     //domyślnie kolor biały
     Color kolor = Color.white;
 
-    public Prostokat(float xa, float ya, float za, float xb, float yb, float zb, float xc, float yc, float zc, float xe, float ye, float ze) {
+    public Czworokat(float xa, float ya, float za, float xb, float yb, float zb, float xc, float yc, float zc, float xe, float ye, float ze) {
         a = new Punkt(xa, ya, za);
         b = new Punkt(xb, yb, zb);
         c = new Punkt(xc, yc, zc);
@@ -72,7 +72,7 @@ public class Prostokat implements Comparable<Prostokat>{
 
 
     @Override
-    public int compareTo(Prostokat o) {
+    public int compareTo(Czworokat o) {
         int lastCmp = odlObs.compareTo(o.odlObs);
         return lastCmp;
     }

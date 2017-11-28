@@ -12,7 +12,7 @@ import java.util.List;
  */
 public class HelloCamera extends PApplet{
 
-    List<Prostokat> pboki = new ArrayList<Prostokat>();
+    List<Czworokat> pboki = new ArrayList<Czworokat>();
     List<Bryla> bryla = new ArrayList<Bryla>();
     Color[] colors = {Color.BLUE, Color.ORANGE, Color.red, Color.green, Color.CYAN, Color.DARK_GRAY, Color.pink};
 
@@ -25,7 +25,7 @@ public class HelloCamera extends PApplet{
                 for(int i =0; i<6; i++) {
                     l = br.readLine();
                     String[] linijka = l.split(", ");
-                    pboki.add(new Prostokat(Float.parseFloat(linijka[0]),
+                    pboki.add(new Czworokat(Float.parseFloat(linijka[0]),
                             Float.parseFloat(linijka[1]),
                             Float.parseFloat(linijka[2]),
                             Float.parseFloat(linijka[3]),
@@ -39,8 +39,8 @@ public class HelloCamera extends PApplet{
                             Float.parseFloat(linijka[11])
                     ));
                 }
-                Prostokat[] krawedzieArray = pboki.toArray(new Prostokat[pboki.size()]);
-                bryla.add(new Bryla(krawedzieArray, colors[j]));
+                Czworokat[] czworokatArray = pboki.toArray(new Czworokat[pboki.size()]);
+                bryla.add(new Bryla(czworokatArray, colors[j]));
                 pboki.clear();
                 j++;
             }else
@@ -64,23 +64,22 @@ public class HelloCamera extends PApplet{
         this.g.background(200,200,200);
 
         //uporządkowanie kolejności rysowania
-        Map<Prostokat, Float> bTrojkaty = new LinkedHashMap<Prostokat, Float>();
+        Map<Czworokat, Float> bCzworokaty = new LinkedHashMap<Czworokat, Float>();
         for(Bryla b: bryla){
             for(int m=0;m<6;m++) {
-                bTrojkaty.put(b.a[m], b.a[m].odlObs);
+                bCzworokaty.put(b.a[m], b.a[m].odlObs);
             }
         }
-        List<Prostokat> mapKeys = new ArrayList<>(bTrojkaty.keySet());
+        List<Czworokat> mapKeys = new ArrayList<>(bCzworokaty.keySet());
         Collections.sort(mapKeys);
         Collections.reverse(mapKeys);
 
         stroke(100,100,100);
         fill(255,255,0);
-        for(int t=0; t<24; t++){
-            mapKeys.get(t).rysuj(this.g, d, height, width);
+        for(Czworokat t: mapKeys){
+            t.rysuj(this.g, d, height, width);
             //System.out.println(mapKeys.get(t).odlObs);
         }
-        //System.out.println(" ");
 
         //legenda
         fill(255,255,255);
@@ -223,9 +222,9 @@ public class HelloCamera extends PApplet{
     }
 
 
-   /*public LinkedHashMap<Prostokat, Float> sortHashMapByValues(HashMap<Prostokat, Float> passedMap){
-        LinkedHashMap<Prostokat, Float> sortedMap = new LinkedHashMap<>();
-        List<Prostokat> mapKeys = new ArrayList<>(passedMap.keySet());
+   /*public LinkedHashMap<Czworokat, Float> sortHashMapByValues(HashMap<Czworokat, Float> passedMap){
+        LinkedHashMap<Czworokat, Float> sortedMap = new LinkedHashMap<>();
+        List<Czworokat> mapKeys = new ArrayList<>(passedMap.keySet());
         List<Float> mapValues = new ArrayList<>(passedMap.values());
         Collections.sort(mapValues);
 

@@ -7,9 +7,9 @@ import java.awt.*;
  */
 public class Bryla {
     //bryła to zbiór linii - krawędzi
-    Prostokat[] a;
+    Czworokat[] a;
 
-    public Bryla(Prostokat[] a, Color kolor){
+    public Bryla(Czworokat[] a, Color kolor){
         for(int i =0; i<6;i++)
             a[i].kolor = kolor;
         this.a = a;
